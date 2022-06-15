@@ -1,0 +1,15 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Welcome from "../components/Welcome"
+---
+
+<Layout title="Brendan Allan">
+	<main class="bg-neutral-900 flex flex-col justify-center items-center relative">
+		<div class="max-w-4xl w-full h-screen flex justify-center items-center">
+			<Welcome client:only />
+		</div>
+		<div class="w-full"></div>
+		<div class="h-screen w-full" />
+		<div class="h-screen w-full" />
+	</main>
+</Layout>
