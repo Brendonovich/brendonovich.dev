@@ -1,0 +1,101 @@
+---
+const iconImports = await Astro.glob("../assets/svg/stack-icons/*.svg")
+  .then((i) =>
+    i.map(async (i) => {
+      return {
+        path: i.default.split("/").at(-1).split(".svg")[0],
+        svg: await import(/* @vite-ignore */ `${i.default}?raw`).then(
+          (i) => i.default
+        ),
+      };
+    })
+  )
+  .then((i) => Promise.all(i));
+
+const data = {
+  languages: [
+    {
+      path: "rust",
+      href: "rust-lang.org",
+    },
+    {
+      path: "typescript",
+      href: "typescriptlang.org",
+    },
+    {
+      path: "elixir",
+      href: "elixir-lang.org",
+    },
+  ],
+  libraries: [
+    {
+      path: "react",
+      href: "reactjs.org",
+    },
+    {
+      path: "solid",
+      href: "solidjs.com",
+    },
+    {
+      path: "astro",
+      href: "astro.build",
+    },
+    {
+      path: "tailwindcss",
+      href: "tailwindcss.com",
+    },
+    {
+      path: "tauri",
+      href: "tauri.studio",
+    },
+    {
+      path: "prisma",
+      href: "prisma.io",
+    },
+    {
+      path: "reactquery",
+      href: "tanstack.com/query",
+    },
+  ],
+  tools: [
+    {
+      path: "vite",
+      href: "vitejs.dev",
+    },
+    {
+      path: "neovim",
+      href: "neovim.io",
+    },
+    {
+      path: "vercel",
+      href: "vercel.com",
+    },
+  ],
+};
+---
+
+<div class="max-w-sm text-left md:text-right">
+  {
+    Object.entries(data).map(([name, data]) => (
+      <div>
+        <span class="uppercase text-white/70">{name}</span>
+        <ul class="mt-1 mb-2 flex flex-row flex-wrap justify-start gap-4 md:justify-end">
+          {data.map((i) => (
+            <li class="h-8 w-8 text-white/80 hover:text-white md:h-10 md:w-10">
+              <a
+                href={`https://${i.href}`}
+                class="fill-current"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Fragment
+                  set:html={iconImports.find((im) => im.path === i.path).svg}
+                />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))
+  }
+</div>

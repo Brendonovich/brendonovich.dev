@@ -1,0 +1,36 @@
+---
+import clsx from "clsx";
+
+interface Props {
+  to?: string;
+  href?: string;
+  class?: string;
+}
+
+const { href, to } = Astro.props;
+
+const pathname = new URL(Astro.request.url).pathname;
+const isHighlighted = pathname === href;
+---
+
+<li
+  class={clsx(
+    "border-b-2",
+    isHighlighted ? "border-white" : "border-transparent"
+  )}
+>
+  {
+    to && (
+      <a href={to}>
+        <slot />
+      </a>
+    )
+  }
+  {
+    href && (
+      <a href={href} target="_blank" rel="noopener noreferrer">
+        <slot />
+      </a>
+    )
+  }
+</li>

@@ -63,12 +63,7 @@ export default function Welcome() {
         >
           Brendan
         </div>
-        <div class="h-32 pt-8">
-          <h2 class="text-white text-4xl font-black">
-            A <span class="text-green-600">software developer</span> from <br />{" "}
-            Western Australia
-          </h2>
-        </div>
+        <div class="h-32 pt-8"></div>
       </div>
     </>
   );
