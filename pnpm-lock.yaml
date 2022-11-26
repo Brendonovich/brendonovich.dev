@@ -2,7 +2,6 @@ lockfileVersion: 5.4
 
 specifiers:
   '@astrojs/image': ^0.11.6
-  '@astrojs/solid-js': ^0.1.4
   '@astrojs/tailwind': ^0.2.1
   astro: ^1.6.11
   clsx: ^1.2.1
@@ -16,7 +15,6 @@ dependencies:
   clsx: 1.2.1
 
 devDependencies:
-  '@astrojs/solid-js': 0.1.4_solid-js@1.4.4
   '@astrojs/tailwind': 0.2.1
   astro: 1.6.11
   prettier: 2.8.0
@@ -128,18 +126,6 @@ packages:
     engines: {node: ^14.18.0 || >=16.12.0}
     dependencies:
       prismjs: 1.28.0
-    dev: true
-
-  /@astrojs/solid-js/0.1.4_solid-js@1.4.4:
-    resolution: {integrity: sha512-S1zwugChY0aZFJZc4D3HsEFqhDeOAnAt4MT6876JkPVoCRWne6ZrBZ7B8tZhUYeN5NfQ+Q+CwchODKjvysO6Ww==}
-    engines: {node: ^14.15.0 || >=16.0.0}
-    peerDependencies:
-      solid-js: ^1.3.6
-    dependencies:
-      babel-preset-solid: 1.4.4
-      solid-js: 1.4.4
-    transitivePeerDependencies:
-      - '@babel/core'
     dev: true
 
   /@astrojs/tailwind/0.2.1:
@@ -260,13 +246,6 @@ packages:
       '@babel/types': 7.20.2
     dev: true
 
-  /@babel/helper-module-imports/7.16.0:
-    resolution: {integrity: sha512-kkH7sWzKPq0xt3H1n+ghb4xEMP8k0U7XV3kkB+ZGy69kDk2ySFW1qPi06sjKzFY3t1j6XbJSqr4mF9L7CYVyhg==}
-    engines: {node: '>=6.9.0'}
-    dependencies:
-      '@babel/types': 7.18.4
-    dev: true
-
   /@babel/helper-module-imports/7.18.6:
     resolution: {integrity: sha512-0NFvs3VkuSYbFi1x2Vd6tKrywq+z/cLeYC/RJNFrIX/30Bf5aiGYbtvGXolEktzJH8o5E5KJ3tT+nkxuuZFVlA==}
     engines: {node: '>=6.9.0'}
@@ -288,11 +267,6 @@ packages:
       '@babel/types': 7.20.2
     transitivePeerDependencies:
       - supports-color
-    dev: true
-
-  /@babel/helper-plugin-utils/7.17.12:
-    resolution: {integrity: sha512-JDkf04mqtN3y4iAbO1hv9U2ARpPyPL1zqyWs/2WG1pgSq9llHFjStX5jdxb84himgJm+8Ng+x0oiWF/nw/XQKA==}
-    engines: {node: '>=6.9.0'}
     dev: true
 
   /@babel/helper-plugin-utils/7.20.2:
@@ -360,15 +334,6 @@ packages:
     hasBin: true
     dependencies:
       '@babel/types': 7.18.4
-    dev: true
-
-  /@babel/plugin-syntax-jsx/7.17.12:
-    resolution: {integrity: sha512-spyY3E3AURfxh/RHtjx5j6hs8am5NbUBGfcZ2vB3uShSpZdQyXSf5rR5Mk76vbtlAZOelyVQ71Fg0x9SG4fsog==}
-    engines: {node: '>=6.9.0'}
-    peerDependencies:
-      '@babel/core': ^7.0.0-0
-    dependencies:
-      '@babel/helper-plugin-utils': 7.17.12
     dev: true
 
   /@babel/plugin-syntax-jsx/7.18.6_@babel+core@7.18.5:
@@ -879,25 +844,6 @@ packages:
       picocolors: 1.0.0
       postcss: 8.4.14
       postcss-value-parser: 4.2.0
-    dev: true
-
-  /babel-plugin-jsx-dom-expressions/0.33.8:
-    resolution: {integrity: sha512-D9fNMObv6tepyA0g67aCxf+RS4jMiVAq/gGxEgYlyEE2mcokjV6OmqqowkHq77WIai1oZBALSuEVbJabxE5R5w==}
-    dependencies:
-      '@babel/helper-module-imports': 7.16.0
-      '@babel/plugin-syntax-jsx': 7.17.12
-      '@babel/types': 7.18.4
-      html-entities: 2.3.2
-    transitivePeerDependencies:
-      - '@babel/core'
-    dev: true
-
-  /babel-preset-solid/1.4.4:
-    resolution: {integrity: sha512-aas2u8tfZppQcrq7rSwOVHBLT1+v3p5D7mJ6a3EHc+9ld8suGxXSQs1yKYCJfm1b2PWfOajxb6daG04PMY991A==}
-    dependencies:
-      babel-plugin-jsx-dom-expressions: 0.33.8
-    transitivePeerDependencies:
-      - '@babel/core'
     dev: true
 
   /bail/2.0.2:
@@ -2018,10 +1964,6 @@ packages:
       hast-util-parse-selector: 3.1.0
       property-information: 6.1.1
       space-separated-tokens: 2.0.1
-    dev: true
-
-  /html-entities/2.3.2:
-    resolution: {integrity: sha512-c3Ab/url5ksaT0WyleslpBEthOzWhrjQbg75y7XUsfSzi3Dgzt0l8w5e7DylRn15MTlMMD58dTfzddNS2kcAjQ==}
     dev: true
 
   /html-entities/2.3.3:

@@ -3,11 +3,12 @@ import { Image } from "@astrojs/image/components";
 import Logo from "~/assets/img/logo.jpg";
 import NavLink from "~/components/NavLink.astro";
 
-export interface Props {
+interface Props {
   title: string;
+  description: string;
 }
 
-const { title } = Astro.props as Props;
+const { title, description } = Astro.props as Props;
 ---
 
 <!DOCTYPE html>
@@ -17,6 +18,7 @@ const { title } = Astro.props as Props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <title>{title}</title>
+    <meta name="description" content={description} />
   </head>
   <body class="relative bg-neutral-900 px-4 pt-4 text-white md:px-6 md:pt-6">
     <div class="mx-auto flex max-w-6xl flex-col">
@@ -37,6 +39,7 @@ const { title } = Astro.props as Props;
           <Image
             src={Logo}
             class="ml-auto w-12 md:w-16 h-12 md:h-16 rounded-lg border-black border"
+            alt="Brendonovich Logo"
           />
         </div>
       </header>

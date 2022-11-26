@@ -9,7 +9,6 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "@astrojs/solid-js": "^0.1.4",
     "@astrojs/tailwind": "^0.2.1",
     "astro": "^1.6.11",
     "prettier": "^2.8.0",

@@ -1,16 +1,17 @@
 ---
-const iconImports = await Astro.glob("../assets/svg/stack-icons/*.svg")
-  .then((i) =>
-    i.map(async (i) => {
-      return {
-        path: i.default.split("/").at(-1).split(".svg")[0],
-        svg: await import(/* @vite-ignore */ `${i.default}?raw`).then(
-          (i) => i.default
-        ),
-      };
+const iconImports = await Promise.all(
+  Object.entries(
+    import.meta.glob("../assets/svg/stack-icons/*.svg", {
+      eager: true,
+      as: "raw",
     })
-  )
-  .then((i) => Promise.all(i));
+  ).map(async ([path, svg]) => {
+    return {
+      path: path.split("/").at(-1).split(".svg")[0],
+      svg,
+    };
+  })
+);
 
 const data = {
   languages: [
