@@ -19,6 +19,11 @@ const { title, description } = Astro.props as Props;
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <script
+      src="/stats/js/script.js"
+      data-api="/stats/api/event"
+      data-domain="brendonovich.dev"
+    ></script>
   </head>
   <body class="relative bg-neutral-900 px-4 pt-4 text-white md:px-6 md:pt-6">
     <div class="mx-auto flex max-w-6xl flex-col">
