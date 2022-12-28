@@ -4,7 +4,7 @@ import Logo from "~/assets/img/logo.jpg";
 import NavLink from "~/components/NavLink.astro";
 
 interface Props {
-  title: string;
+  title?: string;
   description: string;
 }
 
@@ -17,38 +17,59 @@ const { title, description } = Astro.props as Props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <title>{title}</title>
+    <title>{"Brendonovich" + (title ? ` | ${title}` : "")}</title>
     <meta name="description" content={description} />
-    <script
-      src="/stats/js/script.js"
-      data-api="/stats/api/event"
-      data-domain="brendonovich.dev"
-    ></script>
+    {
+      import.meta.env.PROD && (
+        <script
+          defer
+          src="/stats/js/script.js"
+          data-api="/stats/api/event"
+          data-domain="brendonovich.dev"
+        />
+      )
+    }
   </head>
-  <body class="relative bg-neutral-900 px-4 pt-4 text-white md:px-6 md:pt-6">
-    <div class="mx-auto flex max-w-6xl flex-col">
+  <body
+    class="relative flex min-h-screen flex-row justify-center bg-neutral-900 px-4 py-4 text-white md:px-6 md:py-4"
+  >
+    <div class="flex max-w-4xl flex-1 flex-col">
       <header class="sticky mb-4 flex flex-row items-center md:mb-6">
         <div class="flex-1">
-          <h1 class="text-4xl font-black text-yellow-400 md:text-5xl">
+          <h1 class="text-3xl font-black text-yellow-400 md:text-4xl">
             Brendan
           </h1>
         </div>
         <nav class="sticky text-lg md:text-xl">
           <ul class="flex flex-row items-end space-x-4">
-            <NavLink href="/">Home</NavLink>
-            <NavLink href="/blog">Blog</NavLink>
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/blog">Blog</NavLink>
             <NavLink href="https://github.com/brendonovich">GitHub</NavLink>
           </ul>
         </nav>
         <div class="hidden flex-1 md:block">
           <Image
             src={Logo}
-            class="ml-auto w-12 md:w-16 h-12 md:h-16 rounded-lg border-black border"
+            class="ml-auto w-14 h-14 rounded-lg border-black border"
             alt="Brendonovich Logo"
           />
         </div>
       </header>
-      <slot />
+      <main class="flex-1">
+        <slot />
+      </main>
+      <footer
+        class="border-t border-neutral-700 pt-4 text-center font-light text-white/60"
+      >
+        Analytics provided by <a
+          href="https://plausible.io"
+          rel="noopener noreferrer"
+          target="_blank"
+          class="hover:text-blue-500 hover:underline">Plausible</a
+        >
+        <br />
+        © 2022 Brendan Allan
+      </footer>
     </div>
   </body>
 </html>

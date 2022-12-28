@@ -1,20 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Welcome from "../components/Welcome";
 import StackIcons from "~/components/StackIcons.astro";
+import PageHeader from "~/components/PageHeader.astro";
 ---
 
-<Layout
-  title="Brendan Allan"
-  description="The website of Brendonovich (Brendan Allan)"
->
+<Layout description="The website of Brendonovich (Brendan Allan)">
   <main>
     <div class="flex flex-col">
-      <h2 class="text-4xl font-black md:text-5xl">
+      <PageHeader>
         Hey! I'm a <br />
         <span class="text-green-500">Software Engineer</span><br />
         from Western Australia.
-      </h2>
+      </PageHeader>
       <h3 class="mt-8 text-xl font-medium text-white/70 md:text-2xl">
         You may know me from
         <a
@@ -37,13 +34,13 @@ import StackIcons from "~/components/StackIcons.astro";
     <section
       class="mt-12 flex flex-col gap-6 rounded-2xl border-2 border-neutral-700 bg-white/[0.03] p-6 text-base md:flex-row"
     >
-      <div class="flex-1">
-        <h2 class="mb-4 text-3xl font-black">About Me</h2>
-        <p class="text-lg leading-6 text-gray-200">
+      <div class="flex-1 text-lg font-light leading-6 text-white/80">
+        <h2 class="mb-4 text-3xl font-black text-white">About Me</h2>
+        <p>
           I build web apps and libraries primarily using TypeScript and Rust,
           with a bit of Elixir for fun.
         </p>
-        <p class="mt-2 text-lg leading-6 text-gray-200">
+        <p class="mt-2">
           Though I've been programming since 2014, my development career only
           really started in 2019 when I got involved in open source. Since then
           I've been involved in many communities and even managed to get my
