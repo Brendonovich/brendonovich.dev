@@ -5,10 +5,15 @@ import NavLink from "~/components/NavLink.astro";
 
 interface Props {
   title?: string;
+  titleOnly?: boolean;
   description: string;
 }
 
-const { title, description } = Astro.props as Props;
+const { title, titleOnly, description } = Astro.props as Props;
+
+let titleElements = [];
+if (!titleOnly) titleElements.push("Brendonovich");
+if (title) titleElements.push(title);
 ---
 
 <!DOCTYPE html>
@@ -17,7 +22,7 @@ const { title, description } = Astro.props as Props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <title>{"Brendonovich" + (title ? ` | ${title}` : "")}</title>
+    <title>{titleElements.join(" | ")}</title>
     <meta name="description" content={description} />
     {
       import.meta.env.PROD && (

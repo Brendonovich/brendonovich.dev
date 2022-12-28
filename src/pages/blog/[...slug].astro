@@ -9,6 +9,7 @@ export async function getStaticPaths() {
     props: { post },
   }));
 }
+
 interface Props {
   // Optionally use `CollectionEntry` for type safety
   post: CollectionEntry<"blog">;
@@ -18,7 +19,7 @@ const { post } = Astro.props;
 const { Content, injectedFrontmatter } = await post.render();
 ---
 
-<Layout title={post.data.title} description={post.data.byline}>
+<Layout title={post.data.title} titleOnly description={post.data.byline}>
   <article class="prose prose-invert max-w-full">
     <h1>{post.data.title}</h1>
     <p class="lead -mt-6"><i>{post.data.byline}</i></p>
