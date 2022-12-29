@@ -3,13 +3,21 @@ import { Image } from "@astrojs/image/components";
 import Logo from "~/assets/img/logo.jpg";
 import NavLink from "~/components/NavLink.astro";
 
+import "@unocss/reset/tailwind.css";
+
 interface Props {
   title?: string;
   titleOnly?: boolean;
   description: string;
+  class?: string;
 }
 
-const { title, titleOnly, description } = Astro.props as Props;
+const {
+  title,
+  titleOnly,
+  description,
+  class: mainClass,
+} = Astro.props as Props;
 
 let titleElements = [];
 if (!titleOnly) titleElements.push("Brendonovich");
@@ -38,7 +46,7 @@ if (title) titleElements.push(title);
   <body
     class="relative flex min-h-screen flex-row justify-center bg-neutral-900 px-4 py-4 text-white md:px-6 md:py-4"
   >
-    <div class="flex max-w-4xl flex-1 flex-col">
+    <div class="max-w-4xl w-full flex flex-col">
       <header class="sticky mb-4 flex flex-row items-center md:mb-6">
         <div class="flex-1">
           <h1 class="text-3xl font-black text-yellow-400 md:text-4xl">
@@ -60,11 +68,12 @@ if (title) titleElements.push(title);
           />
         </div>
       </header>
-      <main class="flex-1">
+      <main class:list={["flex-1", mainClass]}>
         <slot />
       </main>
+
       <footer
-        class="border-t border-neutral-700 pt-4 text-center font-light text-white/60"
+        class="mt-8 border-t border-neutral-700 pt-4 text-center font-light text-white/60 lt-sm:(-mx-4 px-4)"
       >
         Analytics provided by <a
           href="https://plausible.io"

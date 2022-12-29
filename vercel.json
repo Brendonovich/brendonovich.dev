@@ -8,5 +8,8 @@
       "source": "/stats/api/event",
       "destination": "https://plausible.io/api/event"
     }
-  ]
+  ],
+  "github": {
+    "silent": true
+  }
 }

@@ -11,7 +11,6 @@ export async function getStaticPaths() {
 }
 
 interface Props {
-  // Optionally use `CollectionEntry` for type safety
   post: CollectionEntry<"blog">;
 }
 
@@ -20,16 +19,36 @@ const { Content, injectedFrontmatter } = await post.render();
 ---
 
 <Layout title={post.data.title} titleOnly description={post.data.byline}>
-  <article class="prose prose-invert max-w-full">
-    <h1>{post.data.title}</h1>
-    <p class="lead -mt-6"><i>{post.data.byline}</i></p>
+  <article class="prose prose-invert prose-neutral lt-md:text-sm">
+    <h1 class="mt-0">{post.data.title}</h1>
+    <p class="-mt-2"><i>{post.data.byline}</i></p>
     <div
-      class="-mt-2 flex flex-row space-x-6 border-b border-white/20 pb-4 text-sm"
+      class="flex flex-row space-x-6 border-b border-white/20 pb-4 text-sm lt-sm:(-mx-4 px-4)"
     >
       <span>{post.data.date}</span>
       <span>{injectedFrontmatter.readingTime}</span>
     </div>
-
     <Content />
   </article>
 </Layout>
+<style is:global>
+  .prose {
+    max-width: unset;
+  }
+
+  .prose pre {
+    @apply p-4 border-px border-white/10 leading-5.25 lt-sm:(rounded-none border-x-0 -mx-4);
+  }
+
+  .prose code::after {
+    all: unset;
+  }
+
+  .prose code::before {
+    all: unset;
+  }
+
+  .prose p code {
+    @apply bg-black p-2px border-px rounded-sm border-neutral-800;
+  }
+</style>
