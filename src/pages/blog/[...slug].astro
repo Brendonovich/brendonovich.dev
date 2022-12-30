@@ -18,7 +18,12 @@ const { post } = Astro.props;
 const { Content, injectedFrontmatter } = await post.render();
 ---
 
-<Layout title={post.data.title} titleOnly description={post.data.byline}>
+<Layout
+  title={post.data.title}
+  titleOnly
+  description={post.data.byline}
+  image={`https://og.brendonovich.dev/api/blog?title=${post.data.title}&readTime=${injectedFrontmatter.readingTime}&date=${post.data.date}`}
+>
   <article class="prose prose-invert prose-neutral lt-md:text-sm">
     <h1 class="mt-0">{post.data.title}</h1>
     <p class="-mt-2"><i>{post.data.byline}</i></p>

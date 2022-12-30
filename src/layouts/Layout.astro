@@ -1,89 +1,28 @@
 ---
-import { Image } from "@astrojs/image/components";
-import Logo from "~/assets/img/logo.jpg";
-import NavLink from "~/components/NavLink.astro";
+import BaseHead, { Props as HeadProps } from "~/components/BaseHead.astro";
+import Body from "~/components/Body.astro";
+import Footer from "~/components/Footer.astro";
+import Header from "~/components/Header.astro";
 
-import "@unocss/reset/tailwind.css";
-
-interface Props {
-  title?: string;
-  titleOnly?: boolean;
-  description: string;
+interface Props extends HeadProps {
   class?: string;
 }
 
-const {
-  title,
-  titleOnly,
-  description,
-  class: mainClass,
-} = Astro.props as Props;
-
-let titleElements = [];
-if (!titleOnly) titleElements.push("Brendonovich");
-if (title) titleElements.push(title);
+const { class: mainClass, ...props } = Astro.props as Props;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <title>{titleElements.join(" | ")}</title>
-    <meta name="description" content={description} />
-    {
-      import.meta.env.PROD && (
-        <script
-          defer
-          src="/stats/js/script.js"
-          data-api="/stats/api/event"
-          data-domain="brendonovich.dev"
-        />
-      )
-    }
+    <BaseHead {...props} />
   </head>
-  <body
-    class="relative flex min-h-screen flex-row justify-center bg-neutral-900 px-4 py-4 text-white md:px-6 md:py-4"
-  >
-    <div class="max-w-4xl w-full flex flex-col">
-      <header class="sticky mb-4 flex flex-row items-center md:mb-6">
-        <div class="flex-1">
-          <h1 class="text-3xl font-black text-yellow-400 md:text-4xl">
-            Brendan
-          </h1>
-        </div>
-        <nav class="sticky text-lg md:text-xl">
-          <ul class="flex flex-row items-end space-x-4">
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/blog">Blog</NavLink>
-            <NavLink href="https://github.com/brendonovich">GitHub</NavLink>
-          </ul>
-        </nav>
-        <div class="hidden flex-1 md:block">
-          <Image
-            src={Logo}
-            class="ml-auto w-14 h-14 rounded-lg border-black border"
-            alt="Brendonovich Logo"
-          />
-        </div>
-      </header>
-      <main class:list={["flex-1", mainClass]}>
-        <slot />
-      </main>
+  <Body>
+    <Header />
 
-      <footer
-        class="mt-8 border-t border-neutral-700 pt-4 text-center font-light text-white/60 lt-sm:(-mx-4 px-4)"
-      >
-        Analytics provided by <a
-          href="https://plausible.io"
-          rel="noopener noreferrer"
-          target="_blank"
-          class="hover:text-blue-500 hover:underline">Plausible</a
-        >
-        <br />
-        © 2022 Brendan Allan
-      </footer>
-    </div>
-  </body>
+    <main class:list={["flex-1", mainClass]}>
+      <slot />
+    </main>
+
+    <Footer />
+  </Body>
 </html>

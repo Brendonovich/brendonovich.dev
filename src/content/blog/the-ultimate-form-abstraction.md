@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: "The Ultimate Form Abstraction"
 byline: "Typesafe forms in React? Sounds like a job for React Hook Form and Zod!"
 date: 29 Dec 2022
@@ -193,7 +193,7 @@ Not to worry, we've got more work to do anyway.
 
 If you're anything like me you'll see `resolver: zodResolver(schema)` and cringe.
 Apps can have many forms, meaning that line may be repeated a _lot_.
-Sounds like a great use for a **custom hook**!
+Sounds like a great use for a **custom hook!**
 
 Instead of wrapping `schema` in `zodResolver`,
 it'd be great to pass `schema` directly to our hook.
@@ -883,3 +883,4 @@ and tag me [@brendonovichdev](https://twitter.com/brendonovichdev).
 A big thank you goes out to these people for helping with this post:
 - [Jordan Gensler](https://twitter.com/VapeJuiceJordan) (VapeJuiceJordan) for introducing me to this approach of creating forms
 - [Shoubit Dash](https://www.nexxel.dev/) (Nexxel) for proofreading
+- [Finn Dore](https://github.com/finndore) for proofreading

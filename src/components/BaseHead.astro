@@ -1,0 +1,64 @@
+---
+import "@unocss/reset/tailwind.css";
+import "@fontsource/inter/variable.css";
+
+export interface Props {
+  title?: string;
+  titleOnly?: boolean;
+  description: string;
+  image?: string;
+}
+
+const { title, titleOnly, description, image } = Astro.props;
+
+let titleElements = [];
+if (!titleOnly) titleElements.push("Brendonovich");
+if (title) titleElements.push(title);
+
+// thanks nexxel
+---
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<meta name="generator" content={Astro.generator} />
+
+<!-- Primary Meta Tags -->
+<title>{titleElements.join(" | ")}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Shoubhit Dash" />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+{image && <meta property="og:image" content={image} />}
+
+<!-- Twitter -->
+<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+{image && <meta property="twitter:card" content="summary_large_image" />}
+{image && <meta property="twitter:image" content={image} />}
+
+{
+  import.meta.env.PROD && (
+    <script
+      defer
+      src="/stats/js/script.js"
+      data-api="/stats/api/event"
+      data-domain="brendonovich.dev"
+    />
+  )
+}
+<style is:global>
+  html {
+    font-family: InterVariable, ui-sans-serif, system-ui, -apple-system,
+      BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
+      sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol,
+      "Noto Color Emoji";
+  }
+</style>

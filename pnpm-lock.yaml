@@ -4,6 +4,7 @@ specifiers:
   '@astrojs/image': ^0.12.1
   '@astrojs/prefetch': ^0.1.1
   '@astrojs/rss': ^2.0.0
+  '@fontsource/inter': ^4.5.14
   '@unocss/preset-typography': ^0.48.0
   '@unocss/reset': ^0.48.0
   '@unocss/transformer-variant-group': ^0.48.0
@@ -23,6 +24,7 @@ dependencies:
   '@astrojs/image': 0.12.1
   '@astrojs/prefetch': 0.1.1
   '@astrojs/rss': 2.0.0
+  '@fontsource/inter': 4.5.14
   clsx: 1.2.1
   mdast-util-to-string: 3.1.0
   reading-time: 1.5.0
@@ -463,6 +465,10 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@fontsource/inter/4.5.14:
+    resolution: {integrity: sha512-JDC9AocdPLuGsASkvWw9hS5gtHE7K9dOwL98XLrk5yjYqxy4uVnScG58NUvFMJDVJRl/7c8Wnap6PEs+7Zvj1Q==}
+    dev: false
 
   /@iconify/types/2.0.0:
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
