@@ -38,10 +38,10 @@ if (title) titleElements.push(title);
 {image && <meta property="og:image" content={image} />}
 
 <!-- Twitter -->
+{image && <meta property="twitter:card" content="summary_large_image" />}
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-{image && <meta property="twitter:card" content="summary_large_image" />}
 {image && <meta property="twitter:image" content={image} />}
 
 {
