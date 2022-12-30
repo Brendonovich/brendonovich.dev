@@ -43,9 +43,9 @@ declare module 'astro:content' {
 
 	const entryMap: {
 		"blog": {
-"ultimate-form-abstraction.md": {
-  id: "ultimate-form-abstraction.md",
-  slug: "ultimate-form-abstraction",
+"the-ultimate-form-abstraction.md": {
+  id: "the-ultimate-form-abstraction.md",
+  slug: "the-ultimate-form-abstraction",
   body: string,
   collection: "blog",
   data: InferEntrySchema<"blog">
