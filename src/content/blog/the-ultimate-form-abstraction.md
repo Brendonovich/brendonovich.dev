@@ -2,7 +2,7 @@
 draft: false
 title: "The Ultimate Form Abstraction"
 byline: "Typesafe forms in React? Sounds like a job for React Hook Form and Zod!"
-date: 29 Dec 2022
+date: 31 Dec 2022
 ---
 
 I often see this question pop up online:
