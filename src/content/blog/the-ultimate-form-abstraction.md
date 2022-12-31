@@ -886,4 +886,4 @@ and tag me [@brendonovichdev](https://twitter.com/brendonovichdev).
 
 A big thank you goes out to these people for helping with this post:
 - [Jordan Gensler](https://twitter.com/VapeJuiceJordan) (VapeJuiceJordan) for introducing me to this approach of creating forms
-- [Shoubit Dash](https://www.nexxel.dev/) (Nexxel), [Finn Dore](https://github.com/finndore) and [Benjamin Akar](https://twitter.com/benjaminakar) (akawr) for proofreading
+- [Shoubhit Dash](https://www.nexxel.dev/) (Nexxel), [Finn Dore](https://github.com/finndore) and [Benjamin Akar](https://twitter.com/benjaminakar) (akawr) for proofreading
