@@ -859,6 +859,10 @@ or even add styles to an unstyled component library like
 
 ## Wrapping Things Up
 
+This post has been long, but it only touches on a few of the many
+features of [React Hook Form](https://react-hook-form.com/) and [Zod](https://zod.dev/).
+I'd highly recommend reading their docs to learn how to fully utilise them.
+
 Here's a final example demonstrating everything that has been discussed:
 `Input`, `Select`, `FormField`, styling (via UnoCSS),
 as well as some extra things like additional validations and a delay inside
