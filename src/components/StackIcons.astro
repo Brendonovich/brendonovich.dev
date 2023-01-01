@@ -7,7 +7,7 @@ const iconImports = await Promise.all(
     })
   ).map(async ([path, svg]) => {
     return {
-      path: path.split("/").at(-1).split(".svg")[0],
+      path: path.split("/").at(-1)!.split(".svg")[0],
       svg,
     };
   })
@@ -75,7 +75,7 @@ const data = {
 };
 ---
 
-<div class="max-w-sm text-left md:text-right">
+<div class="max-w-sm text-left md:text-right space-y-2">
   {
     Object.entries(data).map(([name, data]) => (
       <div>
@@ -90,7 +90,7 @@ const data = {
                 rel="noopener noreferrer"
               >
                 <Fragment
-                  set:html={iconImports.find((im) => im.path === i.path).svg}
+                  set:html={iconImports.find((im) => im.path === i.path)!.svg}
                 />
               </a>
             </li>
