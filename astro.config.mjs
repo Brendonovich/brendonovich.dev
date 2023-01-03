@@ -10,9 +10,12 @@ import { remarkReadingTime } from "./src/utils/reading-time.mjs";
 import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
+import compress from "astro-compress";
+
+// https://astro.build/config
 export default defineConfig({
   site: "https://www.brendonovich.dev",
-  integrations: [unocss(), image(), prefetch(), sitemap()],
+  integrations: [unocss(), image(), prefetch(), sitemap(), compress()],
   markdown: {
     extendDefaultPlugins: true,
     rehypePlugins: [rehypeAutolinkHeadings, [rehypeExternalLinks, {
