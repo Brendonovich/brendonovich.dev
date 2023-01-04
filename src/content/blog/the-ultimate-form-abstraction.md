@@ -600,7 +600,7 @@ With this knowledge we can construct a JSX expression to `map()` over each `opti
 and render a list of `<option>` elements:
 
 ```tsx
-{schema.shape.option.options.map((op) => (
+{schema.shape.fruit.options.map((op) => (
   <option key={op.value} value={op.value}>...</option>
 ))}
 ```
@@ -615,8 +615,8 @@ A nice way to do this is with an object that maps each possible `value` to its c
 
 ```tsx
 const FruitMap = {
-  apple: 'Apple',
-  orange: 'Orange',
+  apples: 'Apples',
+  oranges: 'Oranges',
 };
 ```
 
@@ -629,8 +629,8 @@ and used as an object's key type:
 
 ```tsx
 const FruitMap: Record<z.infer<typeof schema>['fruit'], string> = {
-  apple: 'Apple',
-  orange: 'Orange',
+  apples: 'Apples',
+  oranges: 'Oranges',
 };
 ```
 
@@ -652,13 +652,13 @@ In context with the whole form:
 ```tsx
 const schema = z.object({
   email: z.string(),
-  count: z.coerce.number()
+  count: z.coerce.number(),
   fruit: z.union(z.literal("apples"), z.literal("oranges"))
 });
 
 const FruitMap: Record<z.infer<typeof schema>['fruit'], string> = {
-  apple: 'Apple',
-  orange: 'Orange',
+  apples: 'Apples',
+  oranges: 'Oranges',
 };
 
 const App = () => {
