@@ -699,7 +699,7 @@ export interface Props extends PropsWithChildren {
 
 const FormField = ({ children, name, label }: Props) => {
   const ctx = useFormContext();
-  const state = ctx.getFieldState(name);
+  const state = ctx.getFieldState(name, ctx.formState);
 
   return (
     <div>
@@ -769,7 +769,7 @@ interface Props extends UseFormFieldProps {
 
 const FormField = ({ children, name, id, label }: Props) => {
   const ctx = useFormContext();
-  const state = ctx.getFieldState(name);
+  const state = ctx.getFieldState(name, ctx.formState);
 
   return (
     <div>
