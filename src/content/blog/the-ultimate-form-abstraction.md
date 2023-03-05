@@ -328,7 +328,7 @@ interface Props extends ComponentProps<'input'> {
 
 const Input = forwardRef<HTMLInputElement, Props>((props, ref) => {
   const form = useFormContext();
-  const state = form.getFieldState(props.name);
+  const state = form.getFieldState(props.name, ctx.formState);
 
   return (
     <div>
@@ -470,7 +470,7 @@ interface Props extends ComponentProps<'input'> {
 
 const Input = forwardRef<HTMLInputElement, Props>((props, ref) => {
   const form = useFormContext();
-  const state = form.getFieldState(props.name);
+  const state = form.getFieldState(props.name, ctx.formState);
 
   return (
     <div>
@@ -517,7 +517,7 @@ interface Props extends ComponentProps<'select'> {
 
 const Select = forwardRef<HTMLInputElement, Props>((props, ref) => {
   const form = useFormContext();
-  const state = form.getFieldState(props.name);
+  const state = form.getFieldState(props.name, ctx.formState);
 
   return (
     <div>
